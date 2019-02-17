@@ -1,31 +1,37 @@
-/**
- * 
- */
-import java.util.ArrayList;
+#include <list>
+#include <vector>
+#include <random>
+#include <time.h>
+//#include <Card>
+#include <math.h>
+
+using namespace std;
 
 /**
  * The GameBoard class, that is responsible for housing the tableau, destination piles,
  * and stock pile.
  * 
- * @author jsupton
- *
+ * @author Michael Carroll
+ * @version February 16 2019
  */
-public class GameBoard {
+class GameBoard {
 
-	//A Tableau object, consisting of an arrayList of arrayLists of cards
-	private ArrayList<ArrayList<Card>> tableau = new ArrayList<ArrayList<Card>>();
+public:
+
+	//A Tableau object, consisting of a vector of vectors of cards
+	vector<vector<Card>> tableau;
 	
 	//The stock pile for the solitaire game
-	private ArrayList<Card> stock = new ArrayList<Card>();
+	vector<Card> stock;
 	
 	//The discard pile for the game
-	private ArrayList<Card> discard = new ArrayList<Card>();
+	vector<Card> discard;
 	
-	//The destination piles for the game
-	private ArrayList<ArrayList<Card>> destination = new ArrayList<ArrayList<Card>>();
+	//The destination piles for the game, consisting of a vector of vector of cards
+	vector<vector<Card>> destination;
 	
 	//
-	private Integer stockCounter;
+	int stockCounter;
 	
 	/**
 	 * Default constructor for the game board. It creates the 7 column tableau and puts cards in it, sets the 
@@ -33,54 +39,54 @@ public class GameBoard {
 	 * with the remaining cards not in the tableau
 	 * @param deck
 	 */
-	public GameBoard(Deck deck) {
-		ArrayList<Card> col1 = new ArrayList<Card>();
-		ArrayList<Card> col2 = new ArrayList<Card>();
-		ArrayList<Card> col3 = new ArrayList<Card>();
-		ArrayList<Card> col4 = new ArrayList<Card>();
-		ArrayList<Card> col5 = new ArrayList<Card>();
-		ArrayList<Card> col6 = new ArrayList<Card>();
-		ArrayList<Card> col7 = new ArrayList<Card>();
+	GameBoard(Deck deck) {
+		vector<Card> col1;
+		vector<Card> col2;
+		vector<Card> col3;
+		vector<Card> col4;
+		vector<Card> col5;
+		vector<Card> col6;
+		vector<Card> col7;
 		
 		stockCounter = 0;
 		
-		destination.add(new ArrayList<Card>());
-		destination.add(new ArrayList<Card>());
-		destination.add(new ArrayList<Card>());
-		destination.add(new ArrayList<Card>());
+		destination.push_back(new vector<Card>);
+		destination.push_back(new vector<Card>);
+		destination.push_back(new vector<Card>);
+		destination.push_back(new vector<Card>);
 		
 		int colCounter = 0;
 		int deckCounter = 0;
-		ArrayList<Card> d = deck.getDeck();
+		vector<Card> d = deck.getDeck();
 		
 		//Adds cards to the tableau
 		for(int i = 1; i <= 7; i++) {
 			for(int j = 0; j < i; j++) {
-				int col = Math.floorMod(colCounter, 7);
-				Card c = d.get(deckCounter);
+				int col = fmod(colCounter, 7);
+				Card c = d.at(deckCounter);
 				if(j+1 == i)
 					c.makeVisible();
-				switch(col){
+				switch(col) {
 				   case 0 :
-				      col1.add(c);
+				      col1.push_back(c);
 				      break; // break is optional
 				   case 1 : 
-					  col2.add(c);
+					  col2.push_back(c);
 					  break; // break is optional
 				   case 2 : 
-					  col3.add(c);
+					  col3.push_back(c);
 					  break; // break is optional
 				   case 3 :
-				      col4.add(c);
+				      col4.push_back(c);
 				      break; // break is optional
 				   case 4 : 
-					  col5.add(c);
+					  col5.push_back(c);
 					  break; // break is optional
 				   case 5 : 
-					  col6.add(c);
+					  col6.push_back(c);
 					  break; // break is optional
 				   case 6 :
-				      col7.add(c);
+				      col7.push_back(c);
 				      break; // break is optional
 				}
 				deckCounter++;
@@ -89,18 +95,18 @@ public class GameBoard {
 		}
 		
 		//Adds the remaining cards to the stock pile
-		for(int k = deckCounter; k< d.size();k++) {
-			stock.add(d.get(k));
+		for(int k = deckCounter; k< d.size(); k++) {
+			stock.push_back(d.at(k));
 		}
-		stock.get(0).makeVisible();
+		stock.at(0).makeVisible();
 		
-		tableau.add(col1);
-		tableau.add(col2);
-		tableau.add(col3);
-		tableau.add(col4);
-		tableau.add(col5);
-		tableau.add(col6);
-		tableau.add(col7);
+		tableau.push_back(col1);
+		tableau.push_back(col2);
+		tableau.push_back(col3);
+		tableau.push_back(col4);
+		tableau.push_back(col5);
+		tableau.push_back(col6);
+		tableau.push_back(col7);
 		
 		printGameBoard();
 	}
@@ -108,84 +114,84 @@ public class GameBoard {
 	/**
 	 * This method is used to print out the game board in a visually appealing way
 	 */
-	public void printGameBoard() {
-		for(ArrayList<Card> t: tableau) {
-			for(Card c: t) {
+	void printGameBoard() {
+		for(auto t: tableau) {
+			for(auto c: t) {
 				if(c.getVisibility()==true)
-					System.out.print("["+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+"] ");
+					cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
 				else
-					System.out.print(" "+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+" ");
+					cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
 			}
-			System.out.println();
+			cout << '\n';
 		}
-		System.out.println();
-		System.out.print("STOCK:  ");
-		for(Card c: stock) {
+		cout << '\n';
+		cout << "STOCK:  ";
+		for(auto c: stock) {
 			if(c.getVisibility()==true)
-				System.out.print("["+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+"] ");
+				cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
 			else
-				System.out.print(" "+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+" ");
+				cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
 		}
-		System.out.println();
-		System.out.println("DESTINATIONS:  ");
-		for(ArrayList<Card> t: destination) {
-			for(Card c: t) {
+		cout << '\n';
+		cout << "DESINTATIONS  ";
+		for(auto t: destination) {
+			for(auto c: t) {
 				if(c.getVisibility()==true)
-					System.out.print("["+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+"] ");
+					cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
 				else
-					System.out.print(" "+c.getRankAsString()+""+c.getSuitAsString().charAt(0)+" ");
+					cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
 			}
-			System.out.println();
+			cout << '\n';
 		}
-		System.out.println();
-        System.out.println("\n-------------------------------------------------------------------------------------------------------------");
+		cout << '\n';
+        cout << "\n-------------------------------------------------------------------------------------------------------------";
 	}
 	
 	/**
 	 * Used to return the current tableau
-	 * @return ArrayList<ArrayList<Card>> representing the tableau
+	 * @return vector<vector<Card>> representing the tableau
 	 */
-	public ArrayList<ArrayList<Card>> getTableau(){
-		return tableau;
+	vector<vector<Card>> getTableau(){
+		return this ->tableau;
 	}
 	
 	/**
 	 * Used to return the current destination piles
-	 * @return ArrayList<ArrayList<Card>> representing the destination piles
+	 * @return vector<vector<Card>> representing the destination piles
 	 */
-	public ArrayList<ArrayList<Card>> getDestination(){
-		return destination;
+	vector<vector<Card>> getDestination(){
+		return this ->destination;
 	}
 	
 	/**
 	 * Used to return the current discard pile
-	 * @return ArrayList<Card> representing the discard pile
+	 * @return vector<Card> representing the discard pile
 	 */
-	public ArrayList<Card> getDiscard(){
-		return discard;
+	<vector<Card> getDiscard(){
+		return this ->discard;
 	}
 	
 	/**
 	 * Used to return the current stock pile
-	 * @return ArrayList<Card> representing the stock pile
+	 * @return <vector<Card> representing the stock pile
 	 */
-	public ArrayList<Card> getStock(){
-		return stock;
+	<vector<Card> getStock(){
+		return this ->stock;
 	}
 	
 	/**
 	 * Used to return the current stock counter
-	 * @return ArrayList<Card> representing the stock counter
+	 * @return integer representing the stock counter
 	 */
-	public Integer getStockCounter(){
-		return stockCounter;
+	int getStockCounter(){
+		return this ->stockCounter;
 	}
 	
 	/**
 	 * Used to increment the stock counter. This happens when all the cards in the stock
 	 * have been seen again.
 	 */
-	public void incrementStockCounter(){
+	void incrementStockCounter(){
 		stockCounter += 1;
 	}
 	
@@ -193,9 +199,9 @@ public class GameBoard {
 	 * Used to swap the discard and stock piles, this happens when the stock counter is incremented.
 	 * All the cards that we have already seen (in the discard pile) are put back into the stock pile
 	 */
-	public void swapStockAndDiscard(){
-		this.stock = this.discard;
-		this.discard = new ArrayList<Card>();
+	void swapStockAndDiscard(){
+		this ->stock = this ->discard;
+		this ->discard = new <vector<Card>;
 	}
 	
 	/**
@@ -206,7 +212,7 @@ public class GameBoard {
      * @param c
      * @return
      */
-    public boolean validTableauMove(Card c1, Card c2) {
+    bool validTableauMove(Card c1, Card c2) {
     	int rank = c1.compareRank(c2);
     	int suit = c1.compareSuit(c2);
     	if(rank<0 && suit==-1)
@@ -222,7 +228,7 @@ public class GameBoard {
      * @param c
      * @return
      */
-    public boolean validDestinationMove(Card c1, Card c2) {
+    bool validDestinationMove(Card c1, Card c2) {
     	int rank = c1.compareRank(c2);
     	int suit = c1.compareSuit(c2);
     	if(rank>0 && suit==0)
