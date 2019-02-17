@@ -176,6 +176,10 @@ public:
 		return this ->deck;
 	}
 
+	/*
+	* Generates a normal distribution random number between 0 and 1.
+	* @return Random double between 0 and 1.
+	*/
 	double random() {
 		mt19937 generator;
 		generator.seed(time(0));
@@ -183,9 +187,3 @@ public:
 		return cardRand(generator);
 	}
 };
-
-
-
-
-
-
