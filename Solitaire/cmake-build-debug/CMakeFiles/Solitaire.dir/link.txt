@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Solitaire.dir/Solitaire.cpp.o CMakeFiles/Solitaire.dir/Card.cpp.o CMakeFiles/Solitaire.dir/Deck.cpp.o CMakeFiles/Solitaire.dir/Gameboard.cpp.o  -o Solitaire 

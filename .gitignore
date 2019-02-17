@@ -33,3 +33,6 @@
 
 # VS Code stuffs
 *.json
+
+# Finder
+*.DS_Store

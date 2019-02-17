@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/michaelcarroll/Solitaire/Card.cpp
+iostream
+-
+string
+-
+math.h
+-
+Card.h
+/Users/michaelcarroll/Solitaire/Card.h
+
+/Users/michaelcarroll/Solitaire/Card.h
+iostream
+-
+string
+-
+math.h
+-
+
