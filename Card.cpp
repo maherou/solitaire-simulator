@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 
 using namespace std;
 /**
@@ -22,13 +23,13 @@ public:
 
 private:   
     //The suit of the card 
-    const int suit;   
+    int suit;   
     
     //The rank of the card, from 1 to 13
-    const int rank;
+    int rank;
     
     //The color of the card
-    const int color; 
+    int color; 
     
     //Whether or not the card is visible on the board
     bool isVisible;
@@ -70,7 +71,7 @@ private:
      * gets the color of the card
      * @return int that corresponds to this card's Color.
      */
-    public int getColor() {
+    int getColor() {
     	return color;
     }
     
@@ -78,7 +79,7 @@ private:
      * gets the color of the card
      * @return string that corresponds to this card's color.
      */
-    String getColorAsString() {
+    string getColorAsString() {
     	switch ( suit ) {
         case SPADES:   return "B";
         case HEARTS:   return "R";
@@ -169,9 +170,9 @@ private:
      * @return
      */
     int compareRank(Card c) {
-    	if(this.getRank()-1 == c.getRank())
+    	if(this->getRank()-1 == c.getRank())
     		return 1;
-    	else if(this.getRank()+1 == c.getRank())
+    	else if(this->getRank()+1 == c.getRank())
     		return -1;
     	else 
     		return 0;
@@ -185,12 +186,12 @@ private:
      * @return
      */
     int compareSuit(Card c) {
-    	if(this.getSuit()==c.getSuit())
+    	if(this->getSuit()==c.getSuit())
     		return 0;
-    	else if(Math.floorMod(this.getSuit(),2) == Math.floorMod(c.getSuit(),2))
+    	else if(fmod(this->getSuit(),2) == fmod(c.getSuit(),2))
     		return 1;
     	else 
     		return -1;
     }
 
-}
+};
