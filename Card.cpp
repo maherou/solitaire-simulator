@@ -1,38 +1,44 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
 /**
  * This class is the class that is responsible for creating
  * the card object.
  * 
  * @author jsupton
  */
-public class Card {
+ class Card {
 
+public:
 	//Ranks the different Suits and assigns a name to the corresponding number
-    public final static int HEARTS = 0, SPADES = 1, DIAMONDS = 2, CLUBS = 3;
+    static const int HEARTS = 0, SPADES = 1, DIAMONDS = 2, CLUBS = 3;
     
     //Assigns a name to the corresponding numerical value, for cards that are not numeric
-    public final static int ACE = 1, JACK = 11, QUEEN = 12, KING = 13;
+    static const int ACE = 1, JACK = 11, QUEEN = 12, KING = 13;
     
     //Assigns codes for the different Suit Colors
-    public final static int BLACK = 0, RED = 1;
-    
+    static const int BLACK = 0, RED = 1;
+
+private:   
     //The suit of the card 
-    private final int suit;   
+    const int suit;   
     
     //The rank of the card, from 1 to 13
-    private final int rank;
+    const int rank;
     
     //The color of the card
-    private int color; 
+    const int color; 
     
     //Whether or not the card is visible on the board
-    private boolean isVisible;
+    bool isVisible;
        
     /**
      * The default constructor for a Card
      * @param theRank
      * @param theSuit
      */
-    public Card(int theRank, int theSuit) {
+    Card(int theRank, int theSuit) {
         rank = theRank;
         suit = theSuit;
         switch ( suit ) {
@@ -48,7 +54,7 @@ public class Card {
      * gets the suit of the card
      * @return the int that corresponds to this card's suit.
      */
-    public int getSuit() {
+    int getSuit() {
         return suit;
     }
     
@@ -56,7 +62,7 @@ public class Card {
      * gets the rank of the card
      * @return int that corresponds to this card's Rank.
      */
-    public int getRank() {
+    int getRank() {
         return rank;
     }
     
@@ -72,7 +78,7 @@ public class Card {
      * gets the color of the card
      * @return string that corresponds to this card's color.
      */
-    public String getColorAsString() {
+    String getColorAsString() {
     	switch ( suit ) {
         case SPADES:   return "B";
         case HEARTS:   return "R";
@@ -86,7 +92,7 @@ public class Card {
      * gets the color of the card
      * @return string that corresponds to this card's Suit.
      */
-    public String getSuitAsString() {
+    string getSuitAsString() {
             // Return a String representing the card's suit.
             // (If the card's suit is invalid, "??" is returned.)
         switch ( suit ) {
@@ -102,7 +108,7 @@ public class Card {
      * gets the color of the card
      * @return string that corresponds to this card's Rank.
      */
-    public String getRankAsString() {
+    string getRankAsString() {
             // Return a String representing the card's Rank.
             // If the card's Rank is invalid, "??" is returned.
         switch ( rank ) {
@@ -127,7 +133,7 @@ public class Card {
      * Override for the toString method. It prints out the suit as rank
      * of suit
      */
-    public String toString() {
+    string toString() {
            // Return a String representation of this card, such as
            // "10 of Hearts" or "Queen of Spades".
         return getRankAsString() + " of " + getSuitAsString();
@@ -137,21 +143,21 @@ public class Card {
      * gets the visibility of the card
      * @return boolean that corresponds to whether the card is visible or not.
      */
-    public boolean getVisibility() {
+    bool getVisibility() {
     	return isVisible;
     }
     
     /**
      * Makes the card visible on the game board
      */
-    public void makeVisible() {
+    void makeVisible() {
     	isVisible = true;
     }
     
     /**
      * Makes the card invisible on the game board
      */
-    public void makeInvisible() {
+    void makeInvisible() {
     	isVisible = false;
     }
     
@@ -162,7 +168,7 @@ public class Card {
      * @param c
      * @return
      */
-    public int compareRank(Card c) {
+    int compareRank(Card c) {
     	if(this.getRank()-1 == c.getRank())
     		return 1;
     	else if(this.getRank()+1 == c.getRank())
@@ -178,7 +184,7 @@ public class Card {
      * @param c
      * @return
      */
-    public int compareSuit(Card c) {
+    int compareSuit(Card c) {
     	if(this.getSuit()==c.getSuit())
     		return 0;
     	else if(Math.floorMod(this.getSuit(),2) == Math.floorMod(c.getSuit(),2))
