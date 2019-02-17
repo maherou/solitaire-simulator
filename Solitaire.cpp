@@ -14,10 +14,11 @@ public class Solitaire {
 
 	/**
 	 * Main method for creating a new Solitaire object and running the game
-	 * @param args
+	 * @param argc int number of arguments
+	 * @param argv argument variable
 	 */
     public static void main(int argc, char** argv) {
-		Solitaire();
+	    Solitaire();
     }
 
     /**
