@@ -54,6 +54,7 @@ using namespace std;
      * User will win their solitaire game
      */
     void Deck::shuffle_WIN() {
+        deck.clear();
         deck.push_back(Card(1, 0));
         deck.push_back(Card(2, 0));
         deck.push_back(Card(1, 1));
@@ -94,6 +95,7 @@ using namespace std;
      * User will win their solitaire game
      */
     void Deck::shuffle_WIN2() {
+        deck.clear();
         deck.push_back(Card(7, 0));
         deck.push_back(Card(1, 0));
         deck.push_back(Card(6, 1));
@@ -134,6 +136,7 @@ using namespace std;
      * User will lose their solitaire game
      */
     void Deck::shuffle_LOSE() {
+        deck.clear();
         deck.push_back(Card(13, 0));
         deck.push_back(Card(8, 0));
         deck.push_back(Card(13, 1));
@@ -173,8 +176,8 @@ using namespace std;
      * Gets the deck of cards
      * @return ArrayList<Cards> representing the current deck
      */
-    vector<Card> & Deck::getDeck() {
-        return this ->deck;
+    vector<Card> * Deck::getDeck() {
+        return &this ->deck;
     }
 
     /*

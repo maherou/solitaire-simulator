@@ -63,13 +63,13 @@ using namespace std;
 
         int colCounter = 0;
         int deckCounter = 0;
-        vector<Card> &d = deck.getDeck();
+        vector<Card> *d = deck.getDeck();
 
         //Adds cards to the tableau
         for(int i = 1; i <= 7; i++) {
             for(int j = 0; j < i; j++) {
                 int col = fmod(colCounter, 7);
-                Card c = d.at(deckCounter);
+                Card c = d->at(deckCounter);
                 if(j+1 == i)
                     c.makeVisible();
                 switch(col) {
@@ -101,8 +101,8 @@ using namespace std;
         }
 
         //Adds the remaining cards to the stock pile
-        for(int k = deckCounter; k< d.size(); k++) {
-            stock.push_back(d.at(k));
+        for(int k = deckCounter; k< d->size(); k++) {
+            stock.push_back(d->at(k));
         }
         stock.at(0).makeVisible();
 
@@ -158,40 +158,40 @@ using namespace std;
      * Used to return the current tableau
      * @return vector<vector<Card>> representing the tableau
      */
-    vector<vector<Card>> & GameBoard::getTableau(){
-        return this ->tableau;
+    vector<vector<Card>>* GameBoard::getTableau(){
+        return &this ->tableau;
     }
 
     /**
      * Used to return the current destination piles
      * @return vector<vector<Card>> representing the destination piles
      */
-    vector<vector<Card>> & GameBoard::getDestination(){
-        return this ->destination;
+    vector<vector<Card>>* GameBoard::getDestination(){
+        return &this ->destination;
     }
 
     /**
      * Used to return the current discard pile
      * @return vector<Card> representing the discard pile
      */
-    vector<Card> & GameBoard::getDiscard(){
-        return this ->discard;
+    vector<Card> * GameBoard::getDiscard(){
+        return &this ->discard;
     }
 
     /**
      * Used to return the current stock pile
      * @return <vector<Card> representing the stock pile
      */
-    vector<Card> & GameBoard::getStock(){
-        return this ->stock;
+    vector<Card> * GameBoard::getStock(){
+        return &this ->stock;
     }
 
     /**
      * Used to return the current stock counter
      * @return integer representing the stock counter
      */
-    int & GameBoard::getStockCounter(){
-        return this ->stockCounter;
+    int* GameBoard::getStockCounter(){
+        return &this ->stockCounter;
     }
 
     /**
