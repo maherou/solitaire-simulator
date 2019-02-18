@@ -27,7 +27,7 @@ public:
 
 Solitaire() {
         Deck d = Deck();
-        vector<Card> deck = d.getDeck();
+        vector<Card> &deck = d.getDeck();
 
         //Randomly shuffles the deck
         cout << "SHUFFLED DECK " << endl;
@@ -60,7 +60,7 @@ Solitaire() {
         }
 
         //If all of the cards are in the destination piles YOU WIN
-        vector<vector<Card>> destination = t.getDestination();
+        vector<vector<Card>> &destination = t.getDestination();
         if (destination.at(0).size() == 13 && destination.at(1).size() == 13 &&
             destination.at(2).size() == 13 && destination.at(3).size() == 13) {
             cout << "YOU WIN" << endl;
@@ -80,10 +80,10 @@ Solitaire() {
      *		tableau and see if we can do any moves down there
      */
     bool checkStock(GameBoard t) {
-        vector<vector<Card>> board = t.getTableau();
-        vector<Card> stock = t.getStock();
-        vector<Card> discard = t.getDiscard();
-        vector<vector<Card>> destination = t.getDestination();
+        vector<vector<Card>> &board = t.getTableau();
+        vector<Card> &stock = t.getStock();
+        vector<Card> &discard = t.getDiscard();
+        vector<vector<Card>> &destination = t.getDestination();
 
         //If the stock is not empty:
         if (!stock.empty()) {
@@ -190,8 +190,8 @@ Solitaire() {
      * that there were no valid moves on the tableau.
      */
     bool checkTableau(GameBoard t) {
-        vector<vector<Card>> board = t.getTableau();
-        vector<vector<Card>> destination = t.getDestination();
+        vector<vector<Card>> &board = t.getTableau();
+        vector<vector<Card>> &destination = t.getDestination();
 
         //Checks if any of the cards below can be moved to the Top
         for (int i = 0; i < 7; i++) {

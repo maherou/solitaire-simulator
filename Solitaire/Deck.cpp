@@ -173,7 +173,7 @@ using namespace std;
      * Gets the deck of cards
      * @return ArrayList<Cards> representing the current deck
      */
-    vector<Card> Deck::getDeck() {
+    vector<Card> & Deck::getDeck() {
         return this ->deck;
     }
 

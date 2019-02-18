@@ -62,7 +62,7 @@ public:
      * Gets the deck of cards
      * @return ArrayList<Cards> representing the current deck
      */
-    vector<Card> getDeck();
+    vector<Card> & getDeck();
 
     /*
     * Generates a normal distribution random number between 0 and 1.
