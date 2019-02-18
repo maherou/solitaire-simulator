@@ -6,20 +6,20 @@
 using namespace std;
 
 /**
+ * Main method for creating a new Solitaire object and running the game
+ * @param argc int number of arguments
+ * @param argv argument variable
+ */
+int main(int argc, char** argv) {
+	Solitaire();
+}
+/**
  * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
  * execute a solitaire simulation game.
- * @author Colin Tate from Jacob Upton's Java code
+ * @author Colin Tate from Jacob's Solitaire.java
+ * @version February 17 2019
  */
-public class Solitaire {
-
-	/**
-	 * Main method for creating a new Solitaire object and running the game
-	 * @param argc int number of arguments
-	 * @param argv argument variable
-	 */
-    public static void main(int argc, char** argv) {
-	    Solitaire();
-    }
+class Solitaire {
 
     /**
      * Solitaire constructor. Consists of creating a new
@@ -39,8 +39,8 @@ public class Solitaire {
 
 		//A loop that executes the solitaire game
 		while (t.getStockCounter() < 3) {
-			boolean tab = true;
-			boolean stock = false;
+			bool tab = true;
+			bool stock = false;
 			while (tab) {
 				tab = checkTableau(t);
 			}
@@ -69,7 +69,7 @@ public class Solitaire {
      *		was placed on the tableau, which will cause the loop to stop since we now need to look over the 
      *		tableau and see if we can do any moves down there
      */
-    public boolean checkStock(GameBoard t) {
+    bool checkStock(GameBoard t) {
 		vector<vector<Card>> board = t.getTableau();
 		vector<Card> stock = t.getStock();
 		vector<Card> discard = t.getDiscard();
@@ -85,7 +85,7 @@ public class Solitaire {
 				vector<Card> dest = destination.at(j);
 				if (!dest.empty()) {
 					Card card = dest.back();
-					boolean b = t.validDestinationMove(compC, card);
+					bool b = t.validDestinationMove(compC, card);
 					//If it is a valid move, move the stock card, and flip a new stock card over
 					if (b) {
 						stock.erase(stock.begin());
@@ -114,7 +114,7 @@ public class Solitaire {
 				if (!col.empty()) {
 					Card c = col.back();
 					if (c.getVisibility() == true) {
-						boolean b = t.validTableauMove(compC, c);
+						bool b = t.validTableauMove(compC, c);
 						if (b) {
 							//If it is a valid move, move the stock card, and flip a new stock card over
 							stock.erase(stock.begin());
@@ -179,7 +179,7 @@ public class Solitaire {
      * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means 
      * that there were no valid moves on the tableau.
      */
-	public boolean checkTableau(GameBoard t) {
+	bool checkTableau(GameBoard t) {
 		vector<vector<Card>> board = t.getTableau();
 		vector<vector<Card>> destination = t.getDestination();
 
@@ -195,7 +195,7 @@ public class Solitaire {
 					if (colCard.getVisibility() == true) {
 						if (!dest.empty()) {
 							Card destCard = dest.back();
-							boolean b = t.validDestinationMove(colCard, destCard);
+							bool b = t.validDestinationMove(colCard, destCard);
 							if (b) {
 								dest.push_back(col.back());
 								col.pop_back();
@@ -236,8 +236,8 @@ public class Solitaire {
 									Card destCard = dest.at(m);
 									if (destCard.getVisibility() == true) {
 										//Checks both ways to see if either move is valid
-										boolean a = t.validTableauMove(colCard, destCard);
-										boolean b = t.validTableauMove(destCard, colCard);
+										bool a = t.validTableauMove(colCard, destCard);
+										bool b = t.validTableauMove(destCard, colCard);
 
 										//I chose to only allow cards to swap, if this card is not part of a run already
 										//for example a 2 of hearts can be moved to a 3 only if the 2 isn't already on another 3
