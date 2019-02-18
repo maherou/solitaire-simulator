@@ -97,6 +97,9 @@
 		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp">
 			<Option target="Solitaire"/>
 		</Unit>
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.h">
+			<Option target="Solitaire"/>
+		</Unit>
 		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp">
 			<Option target="Solitaire"/>
 		</Unit>

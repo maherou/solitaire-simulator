@@ -3,6 +3,10 @@
 #include <random>
 #include <time.h>
 
+#include "Card.h"
+#include "Deck.h"
+#include "Gameboard.h"
+
 using namespace std;
 
 /**
@@ -39,8 +43,8 @@ public Solitaire() {
 
         //A loop that executes the solitaire game
         while (t.getStockCounter() < 3) {
-            boolean tab = true;
-            boolean stock = false;
+            bool tab = true;
+            bool stock = false;
             while (tab) {
                 tab = checkTableau(t);
             }
@@ -85,7 +89,7 @@ public boolean checkStock(GameBoard t) {
                 vector<Card> dest = destination.at(j);
                 if (!dest.empty()) {
                     Card card = dest.back();
-                    boolean b = t.validDestinationMove(compC, card);
+                    bool b = t.validDestinationMove(compC, card);
                     //If it is a valid move, move the stock card, and flip a new stock card over
                     if (b) {
                         stock.erase(stock.begin());
@@ -114,7 +118,7 @@ public boolean checkStock(GameBoard t) {
                 if (!col.empty()) {
                     Card c = col.back();
                     if (c.getVisibility() == true) {
-                        boolean b = t.validTableauMove(compC, c);
+                        bool b = t.validTableauMove(compC, c);
                         if (b) {
                             //If it is a valid move, move the stock card, and flip a new stock card over
                             stock.erase(stock.begin());
@@ -179,7 +183,7 @@ public boolean checkStock(GameBoard t) {
      * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means
      * that there were no valid moves on the tableau.
      */
-public boolean checkTableau(GameBoard t) {
+bool checkTableau(GameBoard t) {
         vector<vector<Card>> board = t.getTableau();
         vector<vector<Card>> destination = t.getDestination();
 
@@ -195,7 +199,7 @@ public boolean checkTableau(GameBoard t) {
                     if (colCard.getVisibility() == true) {
                         if (!dest.empty()) {
                             Card destCard = dest.back();
-                            boolean b = t.validDestinationMove(colCard, destCard);
+                            bool b = t.validDestinationMove(colCard, destCard);
                             if (b) {
                                 dest.push_back(col.back());
                                 col.pop_back();
@@ -236,8 +240,8 @@ public boolean checkTableau(GameBoard t) {
                                     Card destCard = dest.at(m);
                                     if (destCard.getVisibility() == true) {
                                         //Checks both ways to see if either move is valid
-                                        boolean a = t.validTableauMove(colCard, destCard);
-                                        boolean b = t.validTableauMove(destCard, colCard);
+                                        bool a = t.validTableauMove(colCard, destCard);
+                                        bool b = t.validTableauMove(destCard, colCard);
 
                                         //I chose to only allow cards to swap, if this card is not part of a run already
                                         //for example a 2 of hearts can be moved to a 3 only if the 2 isn't already on another 3

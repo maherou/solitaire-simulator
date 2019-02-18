@@ -3,6 +3,8 @@
 #include <math.h>
 
 #include "Card.h"
+#include "Deck.h"
+#include "Gameboard.h"
 
 using namespace std;
 /**
