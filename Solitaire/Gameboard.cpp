@@ -63,7 +63,7 @@ using namespace std;
 
         int colCounter = 0;
         int deckCounter = 0;
-        vector<Card> d = deck.getDeck();
+        vector<Card> &d = deck.getDeck();
 
         //Adds cards to the tableau
         for(int i = 1; i <= 7; i++) {

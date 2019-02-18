@@ -29,17 +29,17 @@ Solitaire() {
         Deck d = Deck();
         vector<Card> &deck = d.getDeck();
 
-        //Randomly shuffles the deck
-        cout << "SHUFFLED DECK " << endl;
-        d.shuffle();
-        deck = d.getDeck();
-        GameBoard t = GameBoard(d);
-
-//        //Shuffles the deck for a GUARENTEED WIN
-//        cout << "SHUFFLED DECK -- GUARENTEED TO WIN";
-//        d.shuffle_WIN();
+//        //Randomly shuffles the deck
+//        cout << "SHUFFLED DECK " << endl;
+//        d.shuffle();
 //        deck = d.getDeck();
 //        GameBoard t = GameBoard(d);
+
+        //Shuffles the deck for a GUARENTEED WIN
+        cout << "SHUFFLED DECK -- GUARENTEED TO WIN";
+        d.shuffle_WIN();
+        deck = d.getDeck();
+        GameBoard t = GameBoard(d);
 
 //        //Shuffles the deck for a GUARENTEED LOSS
 //        cout << "SHUFFLED DECK -- GUARENTEED TO LOSE";
@@ -87,14 +87,14 @@ Solitaire() {
 
         //If the stock is not empty:
         if (!stock.empty()) {
-            Card compC = stock.at(0);
+            Card &compC = stock.at(0);
             compC.makeVisible();
 
             //Check to see if the stock card can be placed in any of the 4 destination piles
             for (int j = 0; j < 4; j++) {
-                vector<Card> dest = destination.at(j);
+                vector<Card> &dest = destination.at(j);
                 if (!dest.empty()) {
-                    Card card = dest.at(dest.size()-1);
+                    Card &card = dest.at(dest.size()-1);
                     bool b = t.validDestinationMove(compC, card);
                     //If it is a valid move, move the stock card, and flip a new stock card over
                     if (b) {
@@ -120,9 +120,9 @@ Solitaire() {
 
             //Check if it can be placed on any of the bottom columns
             for (int i = 0; i < 7; i++) {
-                vector<Card> col = board.at(i);
+                vector<Card> &col = board.at(i);
                 if (!col.empty()) {
-                    Card c = col.at(col.size()-1);
+                    Card &c = col.at(col.size()-1);
                     if (c.getVisibility() == true) {
                         bool b = t.validTableauMove(compC, c);
                         if (b) {
@@ -196,15 +196,15 @@ Solitaire() {
         //Checks if any of the cards below can be moved to the Top
         for (int i = 0; i < 7; i++) {
             //gets a column of the tableau
-            vector<Card> col = board.at(i);
+            vector<Card> &col = board.at(i);
             if (!col.empty()) {
                 //each ending card in each column is checked to see if it can be moved above
-                Card colCard = col.at(col.size()-1);
+                Card &colCard = col.at(col.size()-1);
                 for (int j = 0; j < 4; j++) {
-                    vector<Card> dest = destination.at(j);
+                    vector<Card> &dest = destination.at(j);
                     if (colCard.getVisibility() == true) {
                         if (!dest.empty()) {
-                            Card destCard = dest.at(dest.size()-1);
+                            Card &destCard = dest.at(dest.size()-1);
                             bool b = t.validDestinationMove(colCard, destCard);
                             if (b) {
                                 dest.push_back(col.at(col.size()-1));
@@ -231,19 +231,19 @@ Solitaire() {
         //Check if any of the bottom cards can be moved to eachother
         for (int i = 0; i < 6; i++) {
             //gets a column of the tableau
-            vector<Card> col = board.at(i);
+            vector<Card> &col = board.at(i);
             if (!col.empty()) {
                 for (int k = 0; k < col.size(); k++) {
                     //Checks each card in that column of the tableau
-                    Card colCard = col.at(k);
+                    Card &colCard = col.at(k);
                     if (colCard.getVisibility() == true) {
                         for (int j = i + 1; j < 7; j++) {
                             //gets a different column of the tableau
-                            vector<Card> dest = board.at(j);
+                            vector<Card> &dest = board.at(j);
                             if (!dest.empty()) {
                                 for (int m = 0; m < dest.size(); m++) {
                                     //checks each card in that other column of the tableau
-                                    Card destCard = dest.at(m);
+                                    Card &destCard = dest.at(m);
                                     if (destCard.getVisibility() == true) {
                                         //Checks both ways to see if either move is valid
                                         bool a = t.validTableauMove(colCard, destCard);
