@@ -1,63 +1,118 @@
-/**
- * Solitaire header file created by Colin Tate - Feb 18th, 2019
- */
+//
+// Created by Michael Carroll on 2019-02-17.
+//
 
-#ifndef SOLITAIRE_H
-#define SOLITAIRE_H
+#ifndef SOLITAIRE_GAMEBOARD_H
+#define SOLITAIRE_GAMEBOARD_H
 
-#include <list>
 #include <vector>
-#include <random>
 #include <time.h>
+#include <random>
 
-#include "Card.h"
-#include "Deck.h"
-#include "Gameboard.h"
+class Card;
 
 using namespace std;
 
-class Solitaire {
+/**
+ * The GameBoard class, that is responsible for housing the tableau, destination piles,
+ * and stock pile.
+ *
+ * @author Michael Carroll
+ * @version February 16 2019
+ */
+class GameBoard {
 
 public:
 
-	/**
-     * Solitaire constructor. Consists of creating a new
-     * deck of cards, then shuffling those cards, and then
-     * executing a the solitaire game.
-	 * @return A solitaire game object to be played
-     */
-	Solitaire();
+    //A Tableau object, consisting of a vector of vectors of cards
+    vector<vector<Card>> tableau;
+
+    //The stock pile for the solitaire game
+    vector<Card> stock;
+
+    //The discard pile for the game
+    vector<Card> discard;
+
+    //The destination piles for the game, consisting of a vector of vector of cards
+    vector<vector<Card>> destination;
+
+    //
+    int stockCounter;
 
     /**
-     * This method is used for checking the stock pile. First, it checks to see if the card on the stock
-     * pile can be moved to a destination pile. It then checks to see if it can be moved to somewhere on
-     * the tableau.
-     * @param t the tableau GameBoard object for the game
-     * @return returning false will cause the while loop above to loop again. This means, if a stock
-     *		card was placed in a destination pile, it loops again, since nothing was placed on the bottom
-     *		tableau, so that doesn't need to be checked again for moves. Returning true means a stock card
-     *		was placed on the tableau, which will cause the loop to stop since we now need to look over the
-     *		tableau and see if we can do any moves down there
+     * Default constructor for the game board. It creates the 7 column tableau and puts cards in it, sets the
+     * stock counter to 0, creates a 4 column destination pile array List, and builds the stock pile
+     * with the remaining cards not in the tableau
+     * @param deck
      */
-    bool checkStock(GameBoard t);
-
+    GameBoard(Deck deck);
 
     /**
-     * This method is used for checking the tableau. First, it checks to see if any of the cards on the tableau can be moved
-     * to a destination pile. It then checks to see if any of the cards on the tableau can be moved to another spot on the tableau
-     * @param t the tableau object for the game
-     * @return returning true means that a card on the tableau was either moved to a destination pile, or moved to another spot on the
-     * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means
-     * that there were no valid moves on the tableau.
+     * This method is used to print out the game board in a visually appealing way
      */
-    bool checkTableau(GameBoard t);
+    void printGameBoard();
+
+    /**
+     * Used to return the current tableau
+     * @return vector<vector<Card>> representing the tableau
+     */
+    vector<vector<Card>> & getTableau();
+
+    /**
+     * Used to return the current destination piles
+     * @return vector<vector<Card>> representing the destination piles
+     */
+    vector<vector<Card>> & getDestination();
+
+    /**
+     * Used to return the current discard pile
+     * @return vector<Card> representing the discard pile
+     */
+    vector<Card> & getDiscard();
+
+    /**
+     * Used to return the current stock pile
+     * @return <vector<Card> representing the stock pile
+     */
+    vector<Card> & getStock();
+
+    /**
+     * Used to return the current stock counter
+     * @return integer representing the stock counter
+     */
+    int & getStockCounter();
+
+    /**
+     * Used to increment the stock counter. This happens when all the cards in the stock
+     * have been seen again.
+     */
+    void incrementStockCounter();
+
+    /**
+     * Used to swap the discard and stock piles, this happens when the stock counter is incremented.
+     * All the cards that we have already seen (in the discard pile) are put back into the stock pile
+     */
+    void swapStockAndDiscard();
+
+    /**
+     * This method determines whether or not this move is valid on the Tableau
+     * (the bottom 7 columns)
+     * This value is greater than the parameter value. Meaning that we can
+     * place this new card below of the parameter value
+     * @param c
+     * @return
+     */
+    bool validTableauMove(Card c1, Card c2);
+
+    /**
+     * This method determines whether or not this move is valid on the destination
+     * piles (the 4 piles on top)
+     * This value is greater than the parameter value. Meaning that we can
+     * place this new card ontop of the parameter value
+     * @param c
+     * @return
+     */
+    bool validDestinationMove(Card c1, Card c2);
 };
 
-/**
- * Main method for creating a new Solitaire object and running the game
- * @param argc int number of arguments
- * @param argv argument variable
- */
-int main(int argc, char** argv);
-
-#endif //SOLITAIRE_H
+#endif //SOLITAIRE_GAMEBOARD_H
