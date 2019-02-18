@@ -63,7 +63,7 @@ using namespace std;
 
         int colCounter = 0;
         int deckCounter = 0;
-        vector<Card> d = deck.getDeck();
+        vector<Card> &d = deck.getDeck();
 
         //Adds cards to the tableau
         for(int i = 1; i <= 7; i++) {
@@ -140,8 +140,8 @@ using namespace std;
         }
         cout << '\n';
         cout << "DESINTATIONS  ";
-        for(auto t: destination) {
-            for(auto c: t) {
+        for(vector<Card> t: destination) {
+            for(Card c: t) {
                 if(c.getVisibility()==true)
                     cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
                 else
@@ -158,7 +158,7 @@ using namespace std;
      * Used to return the current tableau
      * @return vector<vector<Card>> representing the tableau
      */
-    vector<vector<Card>> GameBoard::getTableau(){
+    vector<vector<Card>> & GameBoard::getTableau(){
         return this ->tableau;
     }
 
@@ -166,7 +166,7 @@ using namespace std;
      * Used to return the current destination piles
      * @return vector<vector<Card>> representing the destination piles
      */
-    vector<vector<Card>> GameBoard::getDestination(){
+    vector<vector<Card>> & GameBoard::getDestination(){
         return this ->destination;
     }
 
@@ -174,7 +174,7 @@ using namespace std;
      * Used to return the current discard pile
      * @return vector<Card> representing the discard pile
      */
-    vector<Card> GameBoard::getDiscard(){
+    vector<Card> & GameBoard::getDiscard(){
         return this ->discard;
     }
 
@@ -182,7 +182,7 @@ using namespace std;
      * Used to return the current stock pile
      * @return <vector<Card> representing the stock pile
      */
-    vector<Card> GameBoard::getStock(){
+    vector<Card> & GameBoard::getStock(){
         return this ->stock;
     }
 
@@ -190,7 +190,7 @@ using namespace std;
      * Used to return the current stock counter
      * @return integer representing the stock counter
      */
-    int GameBoard::getStockCounter(){
+    int & GameBoard::getStockCounter(){
         return this ->stockCounter;
     }
 
