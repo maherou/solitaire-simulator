@@ -4,6 +4,7 @@
 
 #ifndef SOLITAIRE_CARD_H
 #define SOLITAIRE_CARD_H
+
 #include <iostream>
 #include <string>
 #include <math.h>
