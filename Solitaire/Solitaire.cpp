@@ -12,18 +12,10 @@ using namespace std;
 /**
  * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
  * execute a solitaire simulation game.
- * @author Colin Tate from Jacob Upton's Java code
+ * @author Colin Tate from Jacob's Solitaire.java
+ * @version February 17 2019
  */
 class Solitaire {
-
-    /**
-     * Main method for creating a new Solitaire object and running the game
-     * @param argc int number of arguments
-     * @param argv argument variable
-     */
-public static void main(int argc, char** argv) {
-        Solitaire();
-    }
 
     /**
      * Solitaire constructor. Consists of creating a new
@@ -31,15 +23,17 @@ public static void main(int argc, char** argv) {
      * executing a the solitaire game.
 	 * @return A solitaire game object to be played
      */
-public Solitaire() {
-        Deck d = new Deck();
+public:
+
+Solitaire() {
+        Deck d = Deck();
         vector<Card> deck = d.getDeck();
 
         //Randomly shuffles the deck
         cout << "SHUFFLED DECK " << endl;
         d.shuffle();
         deck = d.getDeck();
-        GameBoard t = new GameBoard(d);
+        GameBoard t = GameBoard(d);
 
         //A loop that executes the solitaire game
         while (t.getStockCounter() < 3) {
@@ -73,7 +67,7 @@ public Solitaire() {
      *		was placed on the tableau, which will cause the loop to stop since we now need to look over the
      *		tableau and see if we can do any moves down there
      */
-public boolean checkStock(GameBoard t) {
+    bool checkStock(GameBoard t) {
         vector<vector<Card>> board = t.getTableau();
         vector<Card> stock = t.getStock();
         vector<Card> discard = t.getDiscard();
@@ -183,7 +177,7 @@ public boolean checkStock(GameBoard t) {
      * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means
      * that there were no valid moves on the tableau.
      */
-bool checkTableau(GameBoard t) {
+    bool checkTableau(GameBoard t) {
         vector<vector<Card>> board = t.getTableau();
         vector<vector<Card>> destination = t.getDestination();
 
@@ -279,4 +273,15 @@ bool checkTableau(GameBoard t) {
         }
         return false;
     }
+};
+
+/**
+ * Main method for creating a new Solitaire object and running the game
+ * @param argc int number of arguments
+ * @param argv argument variable
+ */
+int main(int argc, char** argv) {
+    Solitaire();
+
+    return 0;
 }
