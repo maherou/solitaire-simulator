@@ -52,10 +52,14 @@ using namespace std;
 
         stockCounter = 0;
 
-        destination.push_back(vector<Card>());
-        destination.push_back(vector<Card>());
-        destination.push_back(vector<Card>());
-        destination.push_back(vector<Card>());
+        vector<Card> dest1;
+        vector<Card> dest2;
+        vector<Card> dest3;
+        vector<Card> dest4;
+        destination.push_back(dest1);
+        destination.push_back(dest2);
+        destination.push_back(dest3);
+        destination.push_back(dest4);
 
         int colCounter = 0;
         int deckCounter = 0;
@@ -147,6 +151,7 @@ using namespace std;
         }
         cout << '\n';
         cout << "\n-------------------------------------------------------------------------------------------------------------";
+        cout << '\n';
     }
 
     /**

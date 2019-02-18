@@ -35,6 +35,18 @@ Solitaire() {
         deck = d.getDeck();
         GameBoard t = GameBoard(d);
 
+//        //Shuffles the deck for a GUARENTEED WIN
+//        cout << "SHUFFLED DECK -- GUARENTEED TO WIN";
+//        d.shuffle_WIN();
+//        deck = d.getDeck();
+//        GameBoard t = GameBoard(d);
+
+//        //Shuffles the deck for a GUARENTEED LOSS
+//        cout << "SHUFFLED DECK -- GUARENTEED TO LOSE";
+//        d.shuffle_LOSE();
+//        deck = d.getDeck();
+//        GameBoard t = GameBoard(d);
+
         //A loop that executes the solitaire game
         while (t.getStockCounter() < 3) {
             bool tab = true;
@@ -75,21 +87,21 @@ Solitaire() {
 
         //If the stock is not empty:
         if (!stock.empty()) {
-            Card compC = stock.front();
+            Card compC = stock.at(0);
             compC.makeVisible();
 
             //Check to see if the stock card can be placed in any of the 4 destination piles
             for (int j = 0; j < 4; j++) {
                 vector<Card> dest = destination.at(j);
                 if (!dest.empty()) {
-                    Card card = dest.back();
+                    Card card = dest.at(dest.size()-1);
                     bool b = t.validDestinationMove(compC, card);
                     //If it is a valid move, move the stock card, and flip a new stock card over
                     if (b) {
                         stock.erase(stock.begin());
                         dest.push_back(compC);
                         if (!stock.empty())
-                            stock.front().makeVisible();
+                            stock.at(0).makeVisible();
                         t.printGameBoard();
                         return false;
                     }
@@ -100,7 +112,7 @@ Solitaire() {
                     stock.erase(stock.begin());
                     dest.push_back(compC);
                     if (!stock.empty())
-                        stock.front().makeVisible();
+                        stock.at(0).makeVisible();
                     t.printGameBoard();
                     return false;
                 }
@@ -110,7 +122,7 @@ Solitaire() {
             for (int i = 0; i < 7; i++) {
                 vector<Card> col = board.at(i);
                 if (!col.empty()) {
-                    Card c = col.back();
+                    Card c = col.at(col.size()-1);
                     if (c.getVisibility() == true) {
                         bool b = t.validTableauMove(compC, c);
                         if (b) {
@@ -119,7 +131,7 @@ Solitaire() {
                             col.push_back(compC);
 
                             if (!stock.empty())
-                                stock.front().makeVisible();
+                                stock.at(0).makeVisible();
                             t.printGameBoard();
                             return true;
                         }
@@ -130,7 +142,7 @@ Solitaire() {
                     stock.erase(stock.begin());
                     col.push_back(compC);
                     if (!stock.empty())
-                        stock.front().makeVisible();
+                        stock.at(0).makeVisible();
                     t.printGameBoard();
                     return true;
                 }
@@ -143,7 +155,7 @@ Solitaire() {
 
             //If the stock isn't empty, flip over a new card
             if (!stock.empty()) {
-                stock.front().makeVisible();
+                stock.at(0).makeVisible();
                 return false;
             }
                 //If the stock is empty, the counter is incremented, and the discard pile become the stock again
@@ -187,27 +199,27 @@ Solitaire() {
             vector<Card> col = board.at(i);
             if (!col.empty()) {
                 //each ending card in each column is checked to see if it can be moved above
-                Card colCard = col.back();
+                Card colCard = col.at(col.size()-1);
                 for (int j = 0; j < 4; j++) {
                     vector<Card> dest = destination.at(j);
                     if (colCard.getVisibility() == true) {
                         if (!dest.empty()) {
-                            Card destCard = dest.back();
+                            Card destCard = dest.at(dest.size()-1);
                             bool b = t.validDestinationMove(colCard, destCard);
                             if (b) {
-                                dest.push_back(col.back());
-                                col.pop_back();
+                                dest.push_back(col.at(col.size()-1));
+                                col.erase(col.begin()+col.size()-1);
                                 if (col.size() != 0)
-                                    col.back().makeVisible();
+                                    col.at(col.size()-1).makeVisible();
                                 t.printGameBoard();
                                 return true;
                             }
                         }
                         else if (colCard.getRank() == 1) {
-                            col.pop_back();
+                            col.erase(col.begin()+col.size()-1);
                             dest.push_back(colCard);
                             if (col.size() != 0)
-                                col.back().makeVisible();
+                                col.at(col.size()-1).makeVisible();
                             t.printGameBoard();
                             return true;
                         }
@@ -239,14 +251,14 @@ Solitaire() {
 
                                         //I chose to only allow cards to swap, if this card is not part of a run already
                                         //for example a 2 of hearts can be moved to a 3 only if the 2 isn't already on another 3
-                                        if (m == dest.back() && k == col.back()) {
+                                        if (m == (dest.size()-1) && k == (col.size()-1)) {
                                             if (a && (col.size() == 1 || col.at(k - 1).getVisibility() == false)) {
                                                 for (int n = k; n < col.size(); n++) {
                                                     dest.push_back(col.at(n));
-                                                    col.erase(n);
+                                                    col.erase(col.begin() + n);
                                                 }
                                                 if (col.size() != 0)
-                                                    col.back().makeVisible();
+                                                    col.at(col.size()-1).makeVisible();
                                                 t.printGameBoard();
                                                 return true;
                                             }
@@ -255,10 +267,10 @@ Solitaire() {
                                             else if (b && (dest.size() == 1 || dest.at(m - 1).getVisibility() == false)) {
                                                 for (int n = m; n < dest.size(); n++) {
                                                     col.push_back(dest.at(n));
-                                                    dest.erase(n);
+                                                    dest.erase(dest.begin() + n);
                                                 }
                                                 if (dest.size() != 0)
-                                                    dest.back().makeVisible();
+                                                    dest.at(dest.size()-1).makeVisible();
                                                 t.printGameBoard();
                                                 return true;
                                             }
