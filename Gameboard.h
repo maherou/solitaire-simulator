@@ -56,31 +56,31 @@ public:
      * Used to return the current tableau
      * @return vector<vector<Card>> representing the tableau
      */
-    vector<vector<Card>> getTableau();
+    vector<vector<Card>>* getTableau();
 
     /**
      * Used to return the current destination piles
      * @return vector<vector<Card>> representing the destination piles
      */
-    vector<vector<Card>> getDestination();
+    vector<vector<Card>>* getDestination();
 
     /**
      * Used to return the current discard pile
      * @return vector<Card> representing the discard pile
      */
-    vector<Card> getDiscard();
+    vector<Card>* getDiscard();
 
     /**
      * Used to return the current stock pile
      * @return <vector<Card> representing the stock pile
      */
-    vector<Card> getStock();
+    vector<Card>* getStock();
 
     /**
      * Used to return the current stock counter
      * @return integer representing the stock counter
      */
-    int getStockCounter();
+    int* getStockCounter();
 
     /**
      * Used to increment the stock counter. This happens when all the cards in the stock
