@@ -1,4 +1,4 @@
-"/Users/michaelcarroll/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5153.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/michaelcarroll/Solitaire
+"/Users/michaelcarroll/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5153.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/michaelcarroll/Solitaire/cmake-build-debug
+-- Build files have been written to: /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug

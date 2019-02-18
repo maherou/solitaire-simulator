@@ -22,7 +22,6 @@ class Card{
         //Assigns codes for the different Suit Colors
         static const int BLACK = 0, RED = 1;
 
-        private:
         //The suit of the card
         int suit;
 

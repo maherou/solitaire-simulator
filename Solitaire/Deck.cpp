@@ -3,6 +3,7 @@
 #include <random>
 
 #include "Card.h"
+#include "Deck.h"
 
 using namespace std;
 
@@ -13,9 +14,6 @@ using namespace std;
  * @author Wilmot Osei-Bonsu
  * @version Febuary 16 2019
  */
-class Deck {
-    //access modifier
-public:
 
     // An arrayList of the deck of cards
     vector<Card> deck;
@@ -26,7 +24,7 @@ public:
     /**
      * Default constructor. It simply creates a deck of 52 cards
      */
-    Deck() {
+    Deck::Deck() {
         // Create an unshuffled deck of cards.
         for (int suit = 0; suit <= 3; suit++) {
             for (int value = 1; value <= 13; value++) {
@@ -38,7 +36,7 @@ public:
     /**
      * Shuffles the deck using the Fisher-Yates algorithm
      */
-    void shuffle() {
+    void Deck::shuffle() {
         // Put all the used cards back into the deck, and shuffle it into
         // a random order.
         for (int i = 51; i > 0; i--) {
@@ -54,7 +52,7 @@ public:
      * Creates a new shuffled deck of cards in an order that guarantees that the
      * User will win their solitaire game
      */
-    void shuffle_WIN() {
+    void Deck::shuffle_WIN() {
         deck.push_back(Card(1, 0));
         deck.push_back(Card(2, 0));
         deck.push_back(Card(1, 1));
@@ -94,7 +92,7 @@ public:
      * Creates a new shuffled deck of cards in an order that guarantees that the
      * User will win their solitaire game
      */
-    void shuffle_WIN2() {
+    void Deck::shuffle_WIN2() {
         deck.push_back(Card(7, 0));
         deck.push_back(Card(1, 0));
         deck.push_back(Card(6, 1));
@@ -134,7 +132,7 @@ public:
      * Creates a new shuffled deck of cards in an order that guarantees that the
      * User will lose their solitaire game
      */
-    void shuffle_LOSE() {
+    void Deck::shuffle_LOSE() {
         deck.push_back(Card(13, 0));
         deck.push_back(Card(8, 0));
         deck.push_back(Card(13, 1));
@@ -174,7 +172,7 @@ public:
      * Gets the deck of cards
      * @return ArrayList<Cards> representing the current deck
      */
-    vector<Card> getDeck() {
+    vector<Card> Deck::getDeck() {
         return this ->deck;
     }
 
@@ -182,10 +180,9 @@ public:
     * Generates a normal distribution random number between 0 and 1.
     * @return Random double between 0 and 1.
     */
-    double random() {
+    double Deck::random() {
         mt19937 generator;
         generator.seed(time(0));
         uniform_real_distribution<double> cardRand(0, 1);
         return cardRand(generator);
     }
-};

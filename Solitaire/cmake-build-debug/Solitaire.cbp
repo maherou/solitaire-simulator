@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/michaelcarroll/Solitaire/cmake-build-debug"/>
+				<Option working_dir="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/michaelcarroll/Solitaire/cmake-build-debug"/>
+				<Option working_dir="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/michaelcarroll/Solitaire/cmake-build-debug"/>
+				<Option working_dir="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Solitaire">
-				<Option output="/Users/michaelcarroll/Solitaire/cmake-build-debug/Solitaire" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/michaelcarroll/Solitaire/cmake-build-debug"/>
+				<Option output="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Solitaire" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 Solitaire"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 Solitaire"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Solitaire/fast">
-				<Option output="/Users/michaelcarroll/Solitaire/cmake-build-debug/Solitaire" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/michaelcarroll/Solitaire/cmake-build-debug"/>
+				<Option output="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Solitaire" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,29 +75,32 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 Solitaire/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 Solitaire/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/michaelcarroll/Solitaire/Card.cpp">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.cpp">
 			<Option target="Solitaire"/>
 		</Unit>
-		<Unit filename="/Users/michaelcarroll/Solitaire/Card.h">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.h">
 			<Option target="Solitaire"/>
 		</Unit>
-		<Unit filename="/Users/michaelcarroll/Solitaire/Deck.cpp">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.cpp">
 			<Option target="Solitaire"/>
 		</Unit>
-		<Unit filename="/Users/michaelcarroll/Solitaire/Gameboard.cpp">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.h">
 			<Option target="Solitaire"/>
 		</Unit>
-		<Unit filename="/Users/michaelcarroll/Solitaire/Solitaire.cpp">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp">
 			<Option target="Solitaire"/>
 		</Unit>
-		<Unit filename="/Users/michaelcarroll/Solitaire/CMakeLists.txt">
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp">
+			<Option target="Solitaire"/>
+		</Unit>
+		<Unit filename="/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
