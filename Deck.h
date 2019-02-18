@@ -5,6 +5,12 @@
 #ifndef SOLITAIRE_DECK_H
 #define SOLITAIRE_DECK_H
 
+#include <vector>
+#include <time.h>
+#include <random>
+
+class Card;
+
 using namespace std;
 
 /**
