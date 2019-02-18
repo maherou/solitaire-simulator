@@ -2,8 +2,8 @@
  * Solitaire header file created by Colin Tate - Feb 18th, 2019
  */
 
-#ifndef SOLITAIRE_DECK_H
-#define SOLITAIRE_DECK_H
+#ifndef SOLITAIRE_H
+#define SOLITAIRE_H
 
 #include <list>
 #include <vector>
@@ -16,23 +16,17 @@
 
 using namespace std;
 
-/**
- * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
- * execute a solitaire simulation game.
- * @author Colin Tate from Jacob's Solitaire.java
- * @version February 17 2019
- */
 class Solitaire {
 
-    /**
+public:
+
+	/**
      * Solitaire constructor. Consists of creating a new
      * deck of cards, then shuffling those cards, and then
      * executing a the solitaire game.
 	 * @return A solitaire game object to be played
      */
-public:
-
-Solitaire();
+	Solitaire();
 
     /**
      * This method is used for checking the stock pile. First, it checks to see if the card on the stock
@@ -57,7 +51,7 @@ Solitaire();
      * that there were no valid moves on the tableau.
      */
     bool checkTableau(GameBoard t);
-}
+};
 
 /**
  * Main method for creating a new Solitaire object and running the game
@@ -65,3 +59,5 @@ Solitaire();
  * @param argv argument variable
  */
 int main(int argc, char** argv);
+
+#endif //SOLITAIRE_H
