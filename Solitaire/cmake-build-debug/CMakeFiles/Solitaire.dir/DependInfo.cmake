@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.cpp" "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Card.cpp.o"
-  "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.cpp" "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Deck.cpp.o"
-  "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp" "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Gameboard.cpp.o"
-  "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp" "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Solitaire.cpp.o"
+  "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.cpp" "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Card.cpp.o"
+  "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.cpp" "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Deck.cpp.o"
+  "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.cpp" "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Gameboard.cpp.o"
+  "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp" "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/Solitaire.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

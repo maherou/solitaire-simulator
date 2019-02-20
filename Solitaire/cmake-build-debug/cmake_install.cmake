@@ -1,4 +1,4 @@
-# Install script for directory: /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire
+# Install script for directory: /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

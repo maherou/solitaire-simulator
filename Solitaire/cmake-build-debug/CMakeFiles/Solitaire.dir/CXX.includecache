@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.h
 iostream
 -
 string
@@ -14,7 +14,7 @@ string
 math.h
 -
 
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.h
 vector
 -
 time.h
@@ -22,7 +22,7 @@ time.h
 random
 -
 
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.h
 vector
 -
 time.h
@@ -30,7 +30,7 @@ time.h
 random
 -
 
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp
 list
 -
 vector
@@ -40,9 +40,9 @@ random
 time.h
 -
 Card.h
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.h
 Deck.h
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.h
 Gameboard.h
-/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.h
 

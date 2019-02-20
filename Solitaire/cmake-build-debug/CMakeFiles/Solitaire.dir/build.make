@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/michaelcarroll/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5153.40/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = /private/var/folders/zg/thf4rf15201crsjwyd0lnz4m0000gn/T/AppTranslocation/F79142DD-8E96-4D7E-9699-393C75B65219/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/michaelcarroll/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5153.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = /private/var/folders/zg/thf4rf15201crsjwyd0lnz4m0000gn/T/AppTranslocation/F79142DD-8E96-4D7E-9699-393C75B65219/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire
+CMAKE_SOURCE_DIR = /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Solitaire.dir/depend.make
@@ -59,55 +59,55 @@ include CMakeFiles/Solitaire.dir/flags.make
 
 CMakeFiles/Solitaire.dir/Solitaire.cpp.o: CMakeFiles/Solitaire.dir/flags.make
 CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Solitaire.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Solitaire.dir/Solitaire.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Solitaire.cpp.o -c /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Solitaire.dir/Solitaire.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Solitaire.cpp.o -c /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp
 
 CMakeFiles/Solitaire.dir/Solitaire.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Solitaire.dir/Solitaire.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp > CMakeFiles/Solitaire.dir/Solitaire.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp > CMakeFiles/Solitaire.dir/Solitaire.cpp.i
 
 CMakeFiles/Solitaire.dir/Solitaire.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Solitaire.dir/Solitaire.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Solitaire.cpp -o CMakeFiles/Solitaire.dir/Solitaire.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp -o CMakeFiles/Solitaire.dir/Solitaire.cpp.s
 
 CMakeFiles/Solitaire.dir/Card.cpp.o: CMakeFiles/Solitaire.dir/flags.make
 CMakeFiles/Solitaire.dir/Card.cpp.o: ../Card.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Solitaire.dir/Card.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Card.cpp.o -c /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Solitaire.dir/Card.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Card.cpp.o -c /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.cpp
 
 CMakeFiles/Solitaire.dir/Card.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Solitaire.dir/Card.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.cpp > CMakeFiles/Solitaire.dir/Card.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.cpp > CMakeFiles/Solitaire.dir/Card.cpp.i
 
 CMakeFiles/Solitaire.dir/Card.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Solitaire.dir/Card.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Card.cpp -o CMakeFiles/Solitaire.dir/Card.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.cpp -o CMakeFiles/Solitaire.dir/Card.cpp.s
 
 CMakeFiles/Solitaire.dir/Deck.cpp.o: CMakeFiles/Solitaire.dir/flags.make
 CMakeFiles/Solitaire.dir/Deck.cpp.o: ../Deck.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Solitaire.dir/Deck.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Deck.cpp.o -c /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Solitaire.dir/Deck.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Deck.cpp.o -c /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.cpp
 
 CMakeFiles/Solitaire.dir/Deck.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Solitaire.dir/Deck.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.cpp > CMakeFiles/Solitaire.dir/Deck.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.cpp > CMakeFiles/Solitaire.dir/Deck.cpp.i
 
 CMakeFiles/Solitaire.dir/Deck.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Solitaire.dir/Deck.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Deck.cpp -o CMakeFiles/Solitaire.dir/Deck.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.cpp -o CMakeFiles/Solitaire.dir/Deck.cpp.s
 
 CMakeFiles/Solitaire.dir/Gameboard.cpp.o: CMakeFiles/Solitaire.dir/flags.make
 CMakeFiles/Solitaire.dir/Gameboard.cpp.o: ../Gameboard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Solitaire.dir/Gameboard.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Gameboard.cpp.o -c /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Solitaire.dir/Gameboard.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Solitaire.dir/Gameboard.cpp.o -c /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.cpp
 
 CMakeFiles/Solitaire.dir/Gameboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Solitaire.dir/Gameboard.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp > CMakeFiles/Solitaire.dir/Gameboard.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.cpp > CMakeFiles/Solitaire.dir/Gameboard.cpp.i
 
 CMakeFiles/Solitaire.dir/Gameboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Solitaire.dir/Gameboard.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/Gameboard.cpp -o CMakeFiles/Solitaire.dir/Gameboard.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.cpp -o CMakeFiles/Solitaire.dir/Gameboard.cpp.s
 
 # Object files for target Solitaire
 Solitaire_OBJECTS = \
@@ -125,7 +125,7 @@ Solitaire: CMakeFiles/Solitaire.dir/Deck.cpp.o
 Solitaire: CMakeFiles/Solitaire.dir/Gameboard.cpp.o
 Solitaire: CMakeFiles/Solitaire.dir/build.make
 Solitaire: CMakeFiles/Solitaire.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Solitaire"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Solitaire"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Solitaire.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +138,6 @@ CMakeFiles/Solitaire.dir/clean:
 .PHONY : CMakeFiles/Solitaire.dir/clean
 
 CMakeFiles/Solitaire.dir/depend:
-	cd /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug /Users/michaelcarroll/dev/github/Acucentri/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/cmake-build-debug/CMakeFiles/Solitaire.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Solitaire.dir/depend
 
