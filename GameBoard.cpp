@@ -114,7 +114,7 @@ using namespace std;
         tableau.push_back(col6);
         tableau.push_back(col7);
 
-        printGameBoard();
+        //printGameBoard();
     }
 
     /**
@@ -123,7 +123,7 @@ using namespace std;
     void GameBoard::printGameBoard() {
         for(auto t: tableau) {
             for(auto c: t) {
-                if(c.getVisibility()==true)
+                if(c.getVisibility())
                     cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
                 else
                     cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
@@ -133,16 +133,16 @@ using namespace std;
         cout << '\n';
         cout << "STOCK:  ";
         for(auto c: stock) {
-            if(c.getVisibility()==true)
+            if(c.getVisibility())
                 cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
             else
                 cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
         }
         cout << '\n';
-        cout << "DESINTATIONS  ";
+        cout << "DESINTATIONS:  \n";
         for(vector<Card> t: destination) {
             for(Card c: t) {
-                if(c.getVisibility()==true)
+                if(c.getVisibility())
                     cout << "[" << c.getRankAsString() << "" << c.getSuitAsString().at(0) << "] ";
                 else
                     cout << " " << c.getRankAsString() << "" << c.getSuitAsString().at(0) << " ";
@@ -150,7 +150,7 @@ using namespace std;
             cout << '\n';
         }
         cout << '\n';
-        cout << "\n-------------------------------------------------------------------------------------------------------------";
+        cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------";
         cout << '\n';
     }
 
