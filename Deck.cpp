@@ -1,6 +1,7 @@
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
-#include <random>
 
 #include "Card.h"
 #include "Deck.h"
@@ -27,6 +28,7 @@ using namespace std;
      */
     Deck::Deck() {
         // Create an unshuffled deck of cards.
+        deck.clear();
         for (int suit = 0; suit <= 3; suit++) {
             for (int value = 1; value <= 13; value++) {
                 deck.push_back(Card(value, suit));
@@ -40,12 +42,14 @@ using namespace std;
     void Deck::shuffle() {
         // Put all the used cards back into the deck, and shuffle it into
         // a random order.
+
         for (int i = 51; i > 0; i--) {
-            int rand = (int)(random()*(i + 1));
+
+            int random = rand()%(i+1);
 
             Card temp = deck[i];
-            deck.at(i) = deck[rand];
-            deck.at(rand) = temp;
+            deck.at(i) = deck[random];
+            deck.at(random) = temp;
         }
     }
 
@@ -97,33 +101,33 @@ using namespace std;
     void Deck::shuffle_WIN2() {
         deck.clear();
         deck.push_back(Card(7, 0));
-        deck.push_back(Card(1, 0));
-        deck.push_back(Card(6, 1));
-        deck.push_back(Card(1, 1));
-        deck.push_back(Card(6, 0));
         deck.push_back(Card(5, 0));
-        deck.push_back(Card(3, 2));
-        deck.push_back(Card(7, 2));
-        deck.push_back(Card(5, 1));
-        deck.push_back(Card(4, 1));
-        deck.push_back(Card(6, 2));
-        deck.push_back(Card(2, 2));
-        deck.push_back(Card(6, 3));
-        deck.push_back(Card(4, 0));
-        deck.push_back(Card(3, 0));
-        deck.push_back(Card(3, 3));
-        deck.push_back(Card(5, 3));
-        deck.push_back(Card(1, 3));
-        deck.push_back(Card(5, 2));
-        deck.push_back(Card(3, 1));
+        deck.push_back(Card(6, 1));
         deck.push_back(Card(2, 1));
+        deck.push_back(Card(3, 0));
+        deck.push_back(Card(4, 1 ));
+        deck.push_back(Card(1, 3));
         deck.push_back(Card(1, 2));
-        deck.push_back(Card(2, 3));
-        deck.push_back(Card(4, 2));
-        deck.push_back(Card(7, 3));
-        deck.push_back(Card(4, 3));
-        deck.push_back(Card(2, 0));
+        deck.push_back(Card(1, 1));
+        deck.push_back(Card(1, 0));
         deck.push_back(Card(7, 1));
+        deck.push_back(Card(2, 0));
+        deck.push_back(Card(3, 1));
+        deck.push_back(Card(4, 0));
+        deck.push_back(Card(5, 1));
+        deck.push_back(Card(7, 3));
+        deck.push_back(Card(2, 2));
+        deck.push_back(Card(3, 3));
+        deck.push_back(Card(4, 2));
+        deck.push_back(Card(5, 3));
+        deck.push_back(Card(6, 0));
+        deck.push_back(Card(7, 2));
+        deck.push_back(Card(6, 3));
+        deck.push_back(Card(5, 2));
+        deck.push_back(Card(4, 3));
+        deck.push_back(Card(3, 2));
+        deck.push_back(Card(2, 3));
+        deck.push_back(Card(6, 2));
         for (int value = 8; value <= 13; value++) {
             for (int suit = 0; suit <= 3; suit++) {
                 deck.push_back(Card(value, suit));
