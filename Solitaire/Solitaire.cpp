@@ -6,6 +6,14 @@
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include <time.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+#include <unistd.h>
 
 using namespace std;
 
@@ -29,43 +37,62 @@ Solitaire() {
         Deck d = Deck();
         vector<Card> *deck = d.getDeck();
 
-        //Randomly shuffles the deck
-//        cout << "SHUFFLED DECK\n" << endl;
-//        d.shuffle();
-//        deck = d.getDeck();
-//        GameBoard t = GameBoard(d);
+        double i = 0;
+        double counter = 0;
+        double seconds = 0;
+        while(i<2000) {
 
-        //Shuffles the deck for a GUARENTEED WIN
-        cout << "SHUFFLED DECK -- GUARENTEED TO WIN\n";
-        d.shuffle_WIN2();
-        deck = d.getDeck();
-        GameBoard t = GameBoard(d);
+            time_t begin = clock();
+            i++;
+            srand(time(0));
+            //Randomly shuffles the deck
+            //cout << "SHUFFLED DECK\n" << endl;
+            d.shuffle();
+            deck = d.getDeck();
+            GameBoard t = GameBoard(d);
+            GameBoard temp = t;
 
-//        //Shuffles the deck for a GUARENTEED LOSS
-//        cout << "SHUFFLED DECK -- GUARENTEED TO LOSE\n";
-//        d.shuffle_LOSE();
-//        deck = d.getDeck();
-//        GameBoard t = GameBoard(d);
+            //Shuffles the deck for a GUARENTEED WIN
+    //          cout << "SHUFFLED DECK -- GUARENTEED TO WIN\n";
+    //          d.shuffle_WIN2();
+    //          deck = d.getDeck();
+    //          GameBoard t = GameBoard(d);
 
-        //A loop that executes the solitaire game
-        while (*t.getStockCounter() < 3) {
-            bool tab = true;
-            bool stock = false;
-            while (tab) {
-                tab = checkTableau(&t);
+    //          //Shuffles the deck for a GUARENTEED LOSS
+    //          cout << "SHUFFLED DECK -- GUARENTEED TO LOSE\n";
+    //          d.shuffle_LOSE();
+    //          deck = d.getDeck();
+    //          GameBoard t = GameBoard(d);
+
+            //A loop that executes the solitaire game
+            while (*t.getStockCounter() < 3) {
+                bool tab = true;
+                bool stock = false;
+                while (tab) {
+                    tab = checkTableau(&t);
+                }
+                while (!stock) {
+                    stock = checkStock(&t);
+                }
             }
-            while (!stock) {
-                stock = checkStock(&t);
-            }
+
+            //If all of the cards are in the destination piles YOU WIN
+            vector<vector<Card>> *destination = t.getDestination();
+            if (destination->at(0).size() == 13 && destination->at(1).size() == 13 &&
+                destination->at(2).size() == 13 && destination->at(3).size() == 13) {
+                cout << "YOU WIN" << endl;
+                temp.printGameBoard();
+                t.printGameBoard();
+                counter++;
+            } else
+                cout << "YOU LOSE" << endl;
+            time_t end = clock();
+            seconds = seconds + (double)(end - begin)/CLOCKS_PER_SEC;
         }
-
-        //If all of the cards are in the destination piles YOU WIN
-        vector<vector<Card>> *destination = t.getDestination();
-        if (destination->at(0).size() == 13 && destination->at(1).size() == 13 &&
-            destination->at(2).size() == 13 && destination->at(3).size() == 13) {
-            cout << "YOU WIN" << endl;
-        } else
-            cout << "YOU LOSE" << endl;
+        cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------";
+        cout << "\nWINS: " << counter;
+        cout << "\nPROBABILITY: " << counter/i << " (" << (counter/i)*100 << "%)";
+        cout << "\nAVERAGE EXECUTION TIME PER SIMULATION: " << seconds/i << " seconds";
     }
 
     /**
@@ -143,7 +170,7 @@ Solitaire() {
             }
                 //If the stock is empty, the counter is incremented, and the discard pile become the stock again
             else {
-                cout << "COUNTER INCREMENTED" << endl;
+                //cout << "COUNTER INCREMENTED" << endl;
                 t->incrementStockCounter();
                 t->swapStockAndDiscard();
                 if (*t->getStockCounter() < 3)
@@ -155,7 +182,7 @@ Solitaire() {
 
             //If the stock is empty, the counter is incremented, and the discard pile become the stock again
         else if (*t->getStockCounter() < 3) {
-            cout << "COUNTER INCREMENTED" << endl;
+            //cout << "COUNTER INCREMENTED" << endl;
             t->incrementStockCounter();
             t->swapStockAndDiscard();
             return false;
@@ -175,7 +202,7 @@ Solitaire() {
         dest->push_back(*compC);
         if (!stock->empty())
             stock->at(0).makeVisible();
-        t->printGameBoard();
+        //t->printGameBoard();
     }
 
     /**
@@ -196,28 +223,27 @@ Solitaire() {
             vector<Card> &col = board->at(i);
             if (!col.empty()) {
                 //each ending card in each column is checked to see if it can be moved above
-                Card colCard = col.at(col.size()-1);
+                Card colCard = col.at(col.size() - 1);
                 for (int j = 0; j < 4; j++) {
                     vector<Card> &dest = destination->at(j);
                     if (colCard.getVisibility()) {
                         if (!dest.empty()) {
-                            Card destCard = dest.at(dest.size()-1);
+                            Card destCard = dest.at(dest.size() - 1);
                             bool b = t->validDestinationMove(colCard, destCard);
                             if (b) {
-                                dest.push_back(col.at(col.size()-1));
-                                col.erase(col.begin()+col.size()-1);
+                                dest.push_back(col.at(col.size() - 1));
+                                col.erase(col.begin() + col.size() - 1);
                                 if (!col.empty())
-                                    col.at(col.size()-1).makeVisible();
-                                t->printGameBoard();
+                                    col.at(col.size() - 1).makeVisible();
+                                //t->printGameBoard();
                                 return true;
                             }
-                        }
-                        else if (colCard.getRank() == 1) {
-                            col.erase(col.begin()+col.size()-1);
+                        } else if (colCard.getRank() == 1) {
+                            col.erase(col.begin() + col.size() - 1);
                             dest.push_back(colCard);
                             if (!col.empty())
-                                col.at(col.size()-1).makeVisible();
-                            t->printGameBoard();
+                                col.at(col.size() - 1).makeVisible();
+                            //t->printGameBoard();
                             return true;
                         }
                     }
@@ -248,28 +274,30 @@ Solitaire() {
 
                                         //I chose to only allow cards to swap, if this card is not part of a run already
                                         //for example a 2 of hearts can be moved to a 3 only if the 2 isn't already on another 3
-                                        if (a && m == (dest.size()-1) && (k == 0 || !(col.at(k - 1).getVisibility()))) {
+                                        if (a && m == (dest.size() - 1) &&
+                                            (k == 0 || !(col.at(k - 1).getVisibility()))) {
                                             int size = col.size();
                                             for (int n = k; n < size; n++) {
                                                 dest.push_back(col.at(k));
                                                 col.erase(col.begin() + k);
                                             }
                                             if (!col.empty())
-                                                col.at(col.size()-1).makeVisible();
-                                            t->printGameBoard();
+                                                col.at(col.size() - 1).makeVisible();
+                                            //t->printGameBoard();
                                             return true;
                                         }
                                             //I chose to only allow cards to swap, if this card is not part of a run already
                                             //for example a 2 of hearts can be moved to a 3 only if the 2 isn't already on another 3
-                                        else if (b && k == (col.size()-1) && (m == 0 || !(dest.at(m - 1).getVisibility()))) {
+                                        else if (b && k == (col.size() - 1) &&
+                                                 (m == 0 || !(dest.at(m - 1).getVisibility()))) {
                                             int size = dest.size();
                                             for (int n = m; n < size; n++) {
                                                 col.push_back(dest.at(m));
                                                 dest.erase(dest.begin() + m);
                                             }
                                             if (!dest.empty())
-                                                dest.at(dest.size()-1).makeVisible();
-                                            t->printGameBoard();
+                                                dest.at(dest.size() - 1).makeVisible();
+                                            //t->printGameBoard();
                                             return true;
                                         }
                                     }
@@ -282,9 +310,11 @@ Solitaire() {
         }
         return false;
     }
-
-
 };
+
+void wait (int e) {
+    std::cin >> e;
+}
 
 /**
  * Main method for creating a new Solitaire object and running the game
@@ -292,7 +322,7 @@ Solitaire() {
  * @param argv argument variable
  */
 int main(int argc, char** argv) {
-    Solitaire();
+    Solitaire s = Solitaire();
 
     return 0;
 }

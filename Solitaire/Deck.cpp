@@ -1,6 +1,7 @@
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
-#include <random>
 
 #include "Card.h"
 #include "Deck.h"
@@ -27,6 +28,7 @@ using namespace std;
      */
     Deck::Deck() {
         // Create an unshuffled deck of cards.
+        deck.clear();
         for (int suit = 0; suit <= 3; suit++) {
             for (int value = 1; value <= 13; value++) {
                 deck.push_back(Card(value, suit));
@@ -40,12 +42,14 @@ using namespace std;
     void Deck::shuffle() {
         // Put all the used cards back into the deck, and shuffle it into
         // a random order.
+
         for (int i = 51; i > 0; i--) {
-            int rand = (int)(random()*(i + 1));
+
+            int random = rand()%(i+1);
 
             Card temp = deck[i];
-            deck.at(i) = deck[rand];
-            deck.at(rand) = temp;
+            deck.at(i) = deck[random];
+            deck.at(random) = temp;
         }
     }
 

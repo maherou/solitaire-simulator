@@ -45,4 +45,20 @@ Deck.h
 /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.h
 Gameboard.h
 /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+iostream
+-
+cstdlib
+-
+ctime
+-
+cmath
+-
+unistd.h
+-
 
