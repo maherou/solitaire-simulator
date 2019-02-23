@@ -6,8 +6,8 @@
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <iostream>
 #include <cstdlib>
@@ -81,8 +81,8 @@ Solitaire() {
             if (destination->at(0).size() == 13 && destination->at(1).size() == 13 &&
                 destination->at(2).size() == 13 && destination->at(3).size() == 13) {
                 cout << "YOU WIN" << endl;
-                temp.printGameBoard();
-                t.printGameBoard();
+                //temp.printGameBoard();
+                //t.printGameBoard();
                 counter++;
             } else
                 cout << "YOU LOSE" << endl;
@@ -308,6 +308,41 @@ Solitaire() {
                 }
             }
         }
+
+        //If no cards can be moved onto one another, this loop checks to see if there are any empty rows
+        //and if there are, it moves a stack onto an empty row to reveal a non-visible card
+        for (int i = 0; i < 7; i++) {
+            //gets a column of the tableau
+            vector<Card> &emptyCol = board->at(i);
+            //If the row is empty, we want to then move a visible stack of cards to this to turn over a non-visble card
+            if (emptyCol.empty()) {
+
+                for (int j = 0; j < 7; j++) {
+                    vector<Card> &col = board->at(j);
+
+                    //Find the first row that contains cards in it
+                    if (!col.empty()) {
+                        if(!col.at(0).getVisibility()) {
+
+                            for (int m = 0; m < col.size(); m++) {
+                                Card destCard = col.at(m);
+                                if (destCard.getVisibility()) {
+                                    int size = col.size();
+                                    for (int n = m; n < size; n++) {
+                                        emptyCol.push_back(col.at(m));
+                                        col.erase(col.begin() + m);
+                                    }
+                                    col.at(col.size() - 1).makeVisible();
+                                    //t->printGameBoard();
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return false;
     }
 };
@@ -325,4 +360,3 @@ int main(int argc, char** argv) {
     Solitaire s = Solitaire();
 
     return 0;
-}
