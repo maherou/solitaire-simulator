@@ -1,10 +1,3 @@
-#include <list>
-#include <vector>
-#include <random>
-#include <time.h>
-//#include <Card>
-#include <math.h>
-
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"

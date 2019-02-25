@@ -1,8 +1,3 @@
-#include <vector>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
