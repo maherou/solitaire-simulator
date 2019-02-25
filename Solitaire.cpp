@@ -1,20 +1,8 @@
-#include <list>
-#include <vector>
-#include <random>
-#include <time.h>
+#include "Solitaire.h"
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <cmath>
-//#include <unistd.h>
 
-using namespace std;
 
 /**
  * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
@@ -22,17 +10,8 @@ using namespace std;
  * @author Colin Tate from Jacob's Solitaire.java
  * @version February 17 2019
  */
-class Solitaire {
 
-    /**
-     * Solitaire constructor. Consists of creating a new
-     * deck of cards, then shuffling those cards, and then
-     * executing a the solitaire game.
-	 * @return A solitaire game object to be played
-     */
-public:
-
-Solitaire(int type) {
+Solitaire::Solitaire(int type) {
         Deck d = Deck();
         vector<Card> *deck = d.getDeck();
 
@@ -99,7 +78,7 @@ Solitaire(int type) {
      *		was placed on the tableau, which will cause the loop to stop since we now need to look over the
      *		tableau and see if we can do any moves down there
      */
-    bool checkStock(GameBoard *t) {
+    bool Solitaire::checkStock(GameBoard *t) {
         vector<vector<Card>> *board = t->getTableau();
         vector<Card> *stock = t->getStock();
         vector<Card> *discard = t->getDiscard();
@@ -190,7 +169,7 @@ Solitaire(int type) {
      * @param compC
      * @param t
      */
-    void stockMoveCard(vector<Card> *stock, vector<Card> *dest,Card *compC, GameBoard *t){
+    void Solitaire::stockMoveCard(vector<Card> *stock, vector<Card> *dest,Card *compC, GameBoard *t){
         stock->erase(stock->begin());
         dest->push_back(*compC);
         if (!stock->empty())
@@ -206,7 +185,7 @@ Solitaire(int type) {
      * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means
      * that there were no valid moves on the tableau.
      */
-    bool checkTableau(GameBoard *t) {
+    bool Solitaire::checkTableau(GameBoard *t) {
         vector<vector<Card>> *board = t->getTableau();
         vector<vector<Card>> *destination = t->getDestination();
 
@@ -338,7 +317,7 @@ Solitaire(int type) {
 
         return false;
     }
-};
+
 
 void wait (int e) {
     std::cin >> e;
