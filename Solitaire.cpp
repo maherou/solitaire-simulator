@@ -32,7 +32,7 @@ class Solitaire {
      */
 public:
 
-Solitaire() {
+Solitaire(int type) {
         Deck d = Deck();
         vector<Card> *deck = d.getDeck();
 
@@ -44,24 +44,18 @@ Solitaire() {
             time_t begin = clock();
             i++;
             srand(time(0));
-            //Randomly shuffles the deck
-            //cout << "SHUFFLED DECK\n" << endl;
-            d.shuffle();
+
+			// Check type - normal / win / loss
+			if (type == 0)
+				d.shuffle();
+			else if (type == 1)
+				d.shuffle_WIN2();
+			else if (type == 2)
+				d.shuffle_LOSE();
+
             deck = d.getDeck();
             GameBoard t = GameBoard(d);
             GameBoard temp = t;
-
-            //Shuffles the deck for a GUARENTEED WIN
-    //          cout << "SHUFFLED DECK -- GUARENTEED TO WIN\n";
-    //          d.shuffle_WIN2();
-    //          deck = d.getDeck();
-    //          GameBoard t = GameBoard(d);
-
-    //          //Shuffles the deck for a GUARENTEED LOSS
-    //          cout << "SHUFFLED DECK -- GUARENTEED TO LOSE\n";
-    //          d.shuffle_LOSE();
-    //          deck = d.getDeck();
-    //          GameBoard t = GameBoard(d);
 
             //A loop that executes the solitaire game
             while (*t.getStockCounter() < 3) {
@@ -356,6 +350,12 @@ void wait (int e) {
  * @param argv argument variable
  */
 int main(int argc, char** argv) {
-    Solitaire s = Solitaire();
-
-    return 0;
+	int i = 0;
+	cout << "What type of game would you like to play?\n  0 - Normal\n  1 - Guaranteed Win\n  2 - Guaranteed Loss" << endl;
+	cin >> i;
+	if (i == 0 || i == 1 || i == 2)
+		Solitaire s = Solitaire(i);
+	else
+		return 1;
+	return 0;
+}
