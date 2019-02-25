@@ -2,8 +2,6 @@
 #include "Deck.h"
 #include "Gameboard.h"
 
-using namespace std;
-
 /**
  * An object of type Deck represents an ordinary deck of 52 playing cards.
  * The deck can be shuffled, and cards can be dealt from the deck.

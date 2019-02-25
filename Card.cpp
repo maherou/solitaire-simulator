@@ -2,7 +2,6 @@
 #include "Deck.h"
 #include "Gameboard.h"
 
-using namespace std;
 /**
  * This class is the class that is responsible for creating
  * the card object.

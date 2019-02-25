@@ -2,8 +2,6 @@
 #include "Deck.h"
 #include "Gameboard.h"
 
-using namespace std;
-
 /**
  * The GameBoard class, that is responsible for housing the tableau, destination piles,
  * and stock pile.
