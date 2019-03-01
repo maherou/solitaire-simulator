@@ -1,98 +1,110 @@
-#include <list>
-#include <vector>
-#include <random>
-#include <time.h>
-
+#include "Solitaire.h"
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
-#include<stdio.h>
-#include<stdlib.h>
-#include <time.h>
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <cmath>
-#include <unistd.h>
-
-using namespace std;
-
-/**
- * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
- * execute a solitaire simulation game.
- * @author Colin Tate from Jacob's Solitaire.java
- * @version February 17 2019
- */
-class Solitaire {
 
     /**
-     * Solitaire constructor. Consists of creating a new
-     * deck of cards, then shuffling those cards, and then
-     * executing a the solitaire game.
-	 * @return A solitaire game object to be played
+     * This class is the main solitaire game class. It uses the classes Deck, Card, and Tableau to
+     * execute a solitaire simulation game.
+     * @author Colin Tate from Jacob's Solitaire.java
+     * @version February 17 2019
      */
-public:
-
-Solitaire() {
+    Solitaire::Solitaire(int type) {
         Deck d = Deck();
         vector<Card> *deck = d.getDeck();
 
-        double i = 0;
-        double counter = 0;
-        double seconds = 0;
-        while(i<2000) {
+        double overall_Count = 0;
+        double overall_Probability = 0;
+        double overall_Time = 0;
+        vector<double> *probabilities = new vector<double>();
+        vector<double> *execution = new vector<double>();
+        int NumberOfSimulations = 5;
+        int NumberOfGames = 2000;
 
-            time_t begin = clock();
-            i++;
-            srand(time(0));
-            //Randomly shuffles the deck
-            //cout << "SHUFFLED DECK\n" << endl;
-            d.shuffle();
-            deck = d.getDeck();
-            GameBoard t = GameBoard(d);
-            GameBoard temp = t;
+        for(int j = 0; j<NumberOfSimulations;j++) {
 
-            //Shuffles the deck for a GUARENTEED WIN
-    //          cout << "SHUFFLED DECK -- GUARENTEED TO WIN\n";
-    //          d.shuffle_WIN2();
-    //          deck = d.getDeck();
-    //          GameBoard t = GameBoard(d);
+            double i = 0;
+            double counter = 0;
+            double seconds = 0;
 
-    //          //Shuffles the deck for a GUARENTEED LOSS
-    //          cout << "SHUFFLED DECK -- GUARENTEED TO LOSE\n";
-    //          d.shuffle_LOSE();
-    //          deck = d.getDeck();
-    //          GameBoard t = GameBoard(d);
+            while (i < NumberOfGames) {
 
-            //A loop that executes the solitaire game
-            while (*t.getStockCounter() < 3) {
-                bool tab = true;
-                bool stock = false;
-                while (tab) {
-                    tab = checkTableau(&t);
+                time_t begin = clock();
+                i++;
+                srand(time(0));
+
+                // Check type - normal / win / loss
+                if (type == 0)
+                    d.shuffle();
+                else if (type == 1)
+                    d.shuffle_WIN2();
+                else if (type == 2)
+                    d.shuffle_LOSE();
+
+                deck = d.getDeck();
+                GameBoard t = GameBoard(d);
+                GameBoard temp = t;
+
+                //A loop that executes the solitaire game
+                while (*t.getStockCounter() < 3) {
+                    bool tab = true;
+                    bool stock = false;
+                    while (tab) {
+                        tab = checkTableau(&t);
+                        //t.printGameBoard();
+                    }
+                    while (!stock) {
+                        stock = checkStock(&t);
+                        //t.printGameBoard();
+                    }
                 }
-                while (!stock) {
-                    stock = checkStock(&t);
+
+                //If all of the cards are in the destination piles YOU WIN
+                vector<vector<Card>> *destination = t.getDestination();
+                if (destination->at(0).size() == 13 && destination->at(1).size() == 13 &&
+                    destination->at(2).size() == 13 && destination->at(3).size() == 13) {
+                    //cout << "YOU WIN" << endl;
+                    //temp.printGameBoard();
+                    //t.printGameBoard();
+                    counter++;
                 }
+                //else
+                  //cout << "YOU LOSE" << endl;
+                time_t end = clock();
+                seconds = seconds + (double) (end - begin) / CLOCKS_PER_SEC;
             }
+            cout << "\n--------------------------------------------------------------------------------------------------------------------------------------------------------";
+            cout << "\nGAME: " << j +1 ;
+            cout << "\nWINS: " << counter;
+            cout << "\nPROBABILITY: " << counter / i << " (" << (counter / i) * 100 << "%)";
+            cout << "\nAVERAGE EXECUTION TIME PER SIMULATION: " << seconds / i << " seconds";
 
-            //If all of the cards are in the destination piles YOU WIN
-            vector<vector<Card>> *destination = t.getDestination();
-            if (destination->at(0).size() == 13 && destination->at(1).size() == 13 &&
-                destination->at(2).size() == 13 && destination->at(3).size() == 13) {
-                cout << "YOU WIN" << endl;
-                temp.printGameBoard();
-                t.printGameBoard();
-                counter++;
-            } else
-                cout << "YOU LOSE" << endl;
-            time_t end = clock();
-            seconds = seconds + (double)(end - begin)/CLOCKS_PER_SEC;
+            probabilities->push_back(counter/i);
+            execution->push_back(seconds/i);
+
+            overall_Count += counter;
+            overall_Probability += counter / i;
+            overall_Time += seconds / i;
         }
-        cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------";
-        cout << "\nWINS: " << counter;
-        cout << "\nPROBABILITY: " << counter/i << " (" << (counter/i)*100 << "%)";
-        cout << "\nAVERAGE EXECUTION TIME PER SIMULATION: " << seconds/i << " seconds";
+        cout << "\n********************************************************************************************************************************************************";
+        cout << "\nOVERALL";
+        cout << "\nAVERAGE WINS: " << (int) overall_Count/NumberOfSimulations << " out of " << NumberOfGames;
+        cout << "\nAVERAGE (Mean) PROBABILITY: " << overall_Probability/NumberOfSimulations << " (" << (overall_Probability/NumberOfSimulations)*100 << "%)";
+        cout << "\nAVERAGE (Mean) EXECUTION TIME PER SIMULATION: " << overall_Time/NumberOfSimulations << " seconds";
+
+        double prob_sd = 0;
+        double ex_sd = 0;
+        for(int j = 0;j<probabilities->size();j++){
+            prob_sd += pow(probabilities->at(j)-(overall_Probability/NumberOfSimulations),2);
+            ex_sd += pow(execution->at(j)-(overall_Time/NumberOfSimulations),2);
+        }
+
+        prob_sd = sqrt(prob_sd/NumberOfSimulations);
+        ex_sd = sqrt(ex_sd/NumberOfSimulations);
+
+        cout << "\nSTANDARD DEVIATION PROBABILITY: " << prob_sd;
+        cout << "\nSTANDARD DEVIATION EXECUTION TIME PER SIMULATION: " << ex_sd;
+        cout << "\n********************************************************************************************************************************************************";
     }
 
     /**
@@ -106,7 +118,7 @@ Solitaire() {
      *		was placed on the tableau, which will cause the loop to stop since we now need to look over the
      *		tableau and see if we can do any moves down there
      */
-    bool checkStock(GameBoard *t) {
+    bool Solitaire::checkStock(GameBoard *t) {
         vector<vector<Card>> *board = t->getTableau();
         vector<Card> *stock = t->getStock();
         vector<Card> *discard = t->getDiscard();
@@ -197,12 +209,11 @@ Solitaire() {
      * @param compC
      * @param t
      */
-    void stockMoveCard(vector<Card> *stock, vector<Card> *dest,Card *compC, GameBoard *t){
+    void Solitaire::stockMoveCard(vector<Card> *stock, vector<Card> *dest,Card *compC, GameBoard *t){
         stock->erase(stock->begin());
         dest->push_back(*compC);
         if (!stock->empty())
             stock->at(0).makeVisible();
-        //t->printGameBoard();
     }
 
     /**
@@ -213,7 +224,7 @@ Solitaire() {
      * tableau. Either way, the main loop above continues, and the tableau is rechecked for new possible moves. Returning false means
      * that there were no valid moves on the tableau.
      */
-    bool checkTableau(GameBoard *t) {
+    bool Solitaire::checkTableau(GameBoard *t) {
         vector<vector<Card>> *board = t->getTableau();
         vector<vector<Card>> *destination = t->getDestination();
 
@@ -235,7 +246,6 @@ Solitaire() {
                                 col.erase(col.begin() + col.size() - 1);
                                 if (!col.empty())
                                     col.at(col.size() - 1).makeVisible();
-                                //t->printGameBoard();
                                 return true;
                             }
                         } else if (colCard.getRank() == 1) {
@@ -243,7 +253,6 @@ Solitaire() {
                             dest.push_back(colCard);
                             if (!col.empty())
                                 col.at(col.size() - 1).makeVisible();
-                            //t->printGameBoard();
                             return true;
                         }
                     }
@@ -283,7 +292,6 @@ Solitaire() {
                                             }
                                             if (!col.empty())
                                                 col.at(col.size() - 1).makeVisible();
-                                            //t->printGameBoard();
                                             return true;
                                         }
                                             //I chose to only allow cards to swap, if this card is not part of a run already
@@ -297,7 +305,6 @@ Solitaire() {
                                             }
                                             if (!dest.empty())
                                                 dest.at(dest.size() - 1).makeVisible();
-                                            //t->printGameBoard();
                                             return true;
                                         }
                                     }
@@ -308,21 +315,55 @@ Solitaire() {
                 }
             }
         }
+
+        //If no cards can be moved onto one another, this loop checks to see if there are any empty rows
+        //and if there are, it moves a stack onto an empty row to reveal a non-visible card
+        for (int i = 0; i < 7; i++) {
+            //gets a column of the tableau
+            vector<Card> &emptyCol = board->at(i);
+            //If the row is empty, we want to then move a visible stack of cards to this to turn over a non-visble card
+            if (emptyCol.empty()) {
+
+                for (int j = 0; j < 7; j++) {
+                    vector<Card> &col = board->at(j);
+
+                    //Find the first row that contains cards in it
+                    if (!col.empty()) {
+                        if(!col.at(0).getVisibility()) {
+
+                            for (int m = 0; m < col.size(); m++) {
+                                Card destCard = col.at(m);
+                                if (destCard.getVisibility()) {
+                                    int size = col.size();
+                                    for (int n = m; n < size; n++) {
+                                        emptyCol.push_back(col.at(m));
+                                        col.erase(col.begin() + m);
+                                    }
+                                    col.at(col.size() - 1).makeVisible();
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return false;
     }
-};
 
-void wait (int e) {
-    std::cin >> e;
-}
-
-/**
- * Main method for creating a new Solitaire object and running the game
- * @param argc int number of arguments
- * @param argv argument variable
- */
-int main(int argc, char** argv) {
-    Solitaire s = Solitaire();
-
-    return 0;
-}
+    /**
+     * Main method for creating a new Solitaire object and running the game
+     * @param argc int number of arguments
+     * @param argv argument variable
+     */
+    int main(int argc, char** argv) {
+        int i = 0;
+        cout << "What type of game would you like to play?\n  0 - Normal\n  1 - Guaranteed Win\n  2 - Guaranteed Loss" << endl;
+        cin >> i;
+        if (i == 0 || i == 1 || i == 2)
+            Solitaire s = Solitaire(i);
+        else
+            return 1;
+        return 0;
+    }

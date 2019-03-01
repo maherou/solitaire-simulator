@@ -1,15 +1,6 @@
-#include <list>
-#include <vector>
-#include <random>
-#include <time.h>
-//#include <Card>
-#include <math.h>
-
 #include "Card.h"
 #include "Deck.h"
 #include "Gameboard.h"
-
-using namespace std;
 
 /**
  * The GameBoard class, that is responsible for housing the tableau, destination piles,

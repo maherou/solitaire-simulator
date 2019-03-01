@@ -20,4 +20,5 @@ CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Card.h
 CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Deck.h
 CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Gameboard.h
 CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Solitaire.cpp
+CMakeFiles/Solitaire.dir/Solitaire.cpp.o: ../Solitaire.h
 

@@ -31,6 +31,16 @@ random
 -
 
 /Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.cpp
+Solitaire.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.h
+Card.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.h
+Deck.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.h
+Gameboard.h
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.h
+
+/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Solitaire.h
 list
 -
 vector
@@ -39,12 +49,6 @@ random
 -
 time.h
 -
-Card.h
-/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Card.h
-Deck.h
-/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Deck.h
-Gameboard.h
-/Users/jacobupton/CLionProjects/solitaire-simulator/Solitaire/Gameboard.h
 stdio.h
 -
 stdlib.h
@@ -58,7 +62,5 @@ cstdlib
 ctime
 -
 cmath
--
-unistd.h
 -
 

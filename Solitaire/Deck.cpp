@@ -1,7 +1,6 @@
 #include <vector>
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
+#include <random>
 
 #include "Card.h"
 #include "Deck.h"
